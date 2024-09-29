@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--根元素，表示一个项目-->
+<!--DefaultTargets用于定默认执行的目标-->
+<Project DefaultTargets="build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--属性都要包含在PropertyGroup元素内部-->
+	<PropertyGroup>
+		<!--声明一个"linianhui"属性，其值为"hello world"-->
+		<linianhui>hello world</linianhui>
+	</PropertyGroup>
+	<!--目标-->
+	<Target Name="build">
+		<!--MSBuild提供的一个内置任务，用于生成记录信息用$(属性名)来引用属性的值-->
+		<Message Text="$(linianhui)"></Message>
+	</Target>
+</Project>

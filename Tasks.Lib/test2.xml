@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="build">
+	<ItemGroup>
+		<!--指定要编译的文件-->
+		<CSFile Include=".\Demo\TempTask.cs"/>
+	</ItemGroup>
+
+	<Target Name="build">
+		<PropertyGroup>
+			<NoStandardLib>true</NoStandardLib>
+		</PropertyGroup>
+		<Csc Sources="@(CSFile)" TargetType="library" AddModules=".\RedDLL\Common.Lib.dll">
+			<Output TaskParameter="OutputAssembly" PropertyName="outputExeFileName"/>
+		</Csc>
+		<Message Text="$(outputExeFileName)"/>
+		<Exec Command="$(outputExeFileName)"></Exec>
+	</Target>
+</Project>
